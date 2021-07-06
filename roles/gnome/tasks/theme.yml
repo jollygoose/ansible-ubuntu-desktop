@@ -1,0 +1,15 @@
+---
+- name: cursor theme
+  dconf:
+    key: "/org/gnome/desktop/interface/cursor-theme"
+    value: '"{{ cursor_theme_name }}"'
+
+- name: icon theme
+  dconf:
+    key: "/org/gnome/desktop/interface/icon-theme"
+    value: '"{{ icon_theme_name }}"'
+
+- name: application theme
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: '"{{ gtk_theme_name }}"'

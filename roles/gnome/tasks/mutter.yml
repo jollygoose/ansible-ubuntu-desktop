@@ -1,0 +1,13 @@
+---
+- name: mutter real-time scheduling
+  dconf:
+    key: "/org/gnome/mutter/experimental-features"
+    value: "['rt-scheduler']"
+- name: fractional scaling
+  dconf:
+    key: "/org/gnome/mutter/experimental-features"
+    value: "['scale-monitor-framebuffer']"
+- name: enable subpixel antialiasing
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/xsettings/antialiasing"
+    value: "'rgba'"

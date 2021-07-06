@@ -1,0 +1,14 @@
+---
+- name: update all installed packages
+  become: true
+  apt:
+    name: '*'
+    state: latest
+    update_cache: yes
+    only_upgrade: yes
+  register: apt_update_status
+
+- name: remove unneeded packages
+  become: true
+  apt:
+    autoremove: yes

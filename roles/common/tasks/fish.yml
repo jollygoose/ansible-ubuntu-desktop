@@ -1,0 +1,9 @@
+---
+- name: change user shell to fish 
+  become: yes
+  ansible.builtin.shell: chsh "{{ ansible_user_id }}" -s /usr/bin/fish
+
+- name: init fish config
+  ansible.builtin.shell: source "/home/{{ ansible_user_id }}/.config/fish/config.fish"
+  args:
+    executable: /usr/bin/fish

@@ -1,0 +1,24 @@
+---
+- name: disable auto mic
+  dconf:
+    key: "/org/gnome/desktop/privacy/disable-microphone"
+    value: "true"
+- name: disable auto camera
+  dconf:
+    key: "/org/gnome/desktop/privacy/disable-camera"
+    value: "true"
+- name: disable auto problem reporting
+  dconf:
+    key: "/org/gnome/desktop/privacy/report-technical-problems"
+    value: "false"
+- name: disable auto lock
+  dconf:
+    key: "/org/gnome/desktop/screensaver/lock-enabled"
+    value: "false"
+
+# https://askubuntu.com/questions/1029108/how-do-i-programmatically-disable-connectivity-checking
+- name: remove connectivity checking
+  become: yes
+  shell: sed -i 's/true/false/g' /var/lib/NetworkManager/NetworkManager-intern.conf
+  args:
+    executable: /bin/bash

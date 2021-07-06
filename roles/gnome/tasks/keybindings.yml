@@ -1,0 +1,157 @@
+---
+- name: file browser shortcut
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/home"
+    value: "['<Super>bracketright']"
+
+- name: web browser shortcut
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/www"
+    value: "['<Super>e']"
+
+- name: close
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/close"
+    value: "['<Super>q']"
+
+- name: toggle maximize
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/toggle-maximized"
+    value: "['<Super>f']"
+
+- name: fullscreen
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/toggle-fullscreen"
+    value: "['<Super>F11']"
+
+- name: monitor left
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/move-to-monitor-left"
+    value: "['<Super><Shift>a']"
+
+- name: monitor right
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/move-to-monitor-right"
+    value: "['<Shift><Super>d']"
+
+- name: switch to workspace below
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down"
+    value: "['<Super>s']"
+
+- name: switch to workspace up
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up"
+    value: "['<Super>w']"
+
+- name: workspace down
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-down"
+    value: "['<Super><Shift>s']"
+
+- name: workspace up
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/move-to-workspace-up"
+    value: "['<Super><Shift>w']"
+
+- name: move to right side
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/toggle-tiled-right"
+    value: "['<Super>d']"
+
+- name: move to left side
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/toggle-tiled-left"
+    value: "['<Super>a']"
+
+- name: workspace 1
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1"
+    value: "['<Super>1']"
+
+- name: workspace 2
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2"
+    value: "['<Super>2']"
+
+- name: workspace 3
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3"
+    value: "['<Super>3']"
+
+- name: workspace 4
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4"
+    value: "['<Super>4']"
+
+- name: workspace 5
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-5"
+    value: "['<Super>5']"
+
+- name: terminal shortcut binding
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/terminal"
+    value: "'<Super>apostrophe'"
+
+# Custom shortcuts. @TODO move this over to a script
+
+- name: kitty terminal
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
+    value: "'kitty terminal'"
+- name: kitty command
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
+    value: "'kitty'"
+- name: kitty shortcut binding
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
+    value: "'<Super>backslash'"
+
+- name: vscode shortcut
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name"
+    value: "'code'"
+- name: vscode command
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command"
+    value: "'code'"
+- name: vscode shortcut binding
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding"
+    value: "'<Super>c'"
+
+- name: vscode-insiders shortcut
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name"
+    value: "'code-insiders'"
+- name: vscode command
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command"
+    value: "'code-insiders'"
+- name: vscode shortcut binding
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding"
+    value: "'<Super><Shift>c'"
+
+- name: tilix terminal
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/name"
+    value: "'tilix terminal'"
+- name: tilix command
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/command"
+    value: "'tilix'"
+- name: tilix shortcut binding
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/binding"
+    value: "'<Super>Return'"
+
+- name: enable custom keybindings
+  ansible.builtin.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/',\
+      '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', \
+      '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', \
+      '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']"

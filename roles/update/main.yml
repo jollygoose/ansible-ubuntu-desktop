@@ -1,0 +1,13 @@
+---
+- hosts: ubuntu
+  tasks:
+    - name: apt
+      ansible.builtin.import_tasks: tasks/apt.yml
+
+    - name: snap
+      ansible.builtin.import_tasks: tasks/snap.yml
+
+- hosts: gnome-desktop
+  tasks:
+    - name: flatpak
+      ansible.builtin.import_tasks: tasks/flatpak.yml

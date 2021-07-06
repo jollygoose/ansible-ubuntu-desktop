@@ -1,0 +1,39 @@
+---
+- hosts: gnome-desktop
+
+  pre_tasks:
+    - name: load configuration
+      ansible.builtin.include_vars: config.yml
+
+  tasks:
+    - name: configure gnome clock
+      ansible.builtin.import_tasks: tasks/clock.yml
+      when: set_clock
+
+    - name: set profile pic
+      ansible.builtin.import_tasks: tasks/profile.yml
+      when: set_profile
+
+    - name: set wallpaper
+      ansible.builtin.import_tasks: tasks/wallpaper.yml
+      when: set_wallpaper
+
+    - name: configure theme
+      ansible.builtin.import_tasks: tasks/theme.yml
+      when: set_theme
+
+    - name: configure privacy settings
+      ansible.builtin.import_tasks: tasks/privacy.yml
+      when: set_privacy
+
+    - name: disable dashtodock bindings
+      ansible.builtin.import_tasks: tasks/disable_bindings.yml
+      when: disable_dash_keybindings
+
+    - name: configure keybindings
+      ansible.builtin.import_tasks: tasks/keybindings.yml
+      when: set_keybindings
+
+    - name: configure power settings
+      ansible.builtin.import_tasks: tasks/power.yml
+      when: configure_power

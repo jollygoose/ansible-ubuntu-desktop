@@ -1,0 +1,23 @@
+---
+- hosts: gnome-desktop
+
+  pre_tasks:
+    - name: load configuration
+      ansible.builtin.include_vars: config.yml
+
+  tasks:
+    - name: install apt packages
+      ansible.builtin.import_tasks: tasks/apt.yml
+      when: install_apt_packages
+    
+    - name: install flatpaks
+      ansible.builtin.import_tasks: tasks/flatpak.yml
+      when: install_flatpaks
+    
+    - name: install snaps
+      ansible.builtin.import_tasks: tasks/snap.yml
+      when: install_snaps
+    
+    - name: vscode extensions
+      ansible.builtin.import_tasks: tasks/vscode.yml
+      when: install_vscode_extensions

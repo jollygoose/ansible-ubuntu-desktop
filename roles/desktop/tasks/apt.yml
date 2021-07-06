@@ -1,0 +1,25 @@
+---
+- name: purge uneeded
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: absent
+    purge: yes
+  with_items: "{{ packages_remove }}"
+
+- name: add cache server
+  become: yes
+  ansible.builtin.shell: "{{ cache_url }}}" 
+  when: use_apt_cache
+
+- name: update the repos
+  become: yes
+  apt:
+    update_cache: yes
+    upgrade: 'yes'
+
+- name: install packages
+  become: yes
+  ansible.builtin.package:
+    name: "{{ item }}"
+  with_items: "{{ packages_install }}"

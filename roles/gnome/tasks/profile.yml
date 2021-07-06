@@ -1,0 +1,12 @@
+---
+- name: copy profile pic
+  copy:
+    src: '{{ user_profile_img }}'
+    dest: "/home/{{ ansible_user_id }}/.face"
+- name: set profile picture
+  become: yes
+  become_exe: sudo
+  lineinfile:
+    path: "/var/lib/AccountsService/users/{{ ansible_user_id }}"
+    regexp: "^Icon="
+    line: "Icon=/home/{{ ansible_user_id }}/.face"

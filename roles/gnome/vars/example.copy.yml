@@ -1,0 +1,20 @@
+---
+set_profile: false
+user_profile_img: 'profile.png'
+
+set_wallpaper: false
+user_wall_img: 'image.png'
+
+set_theme: false
+gtk_theme_name: 'your-theme-name'
+cursor_theme_name: ''
+
+set_clock: false
+
+set_privacy: false
+
+configure_power: false
+
+disable_dash_keybindings: false
+
+set_keybindings: false

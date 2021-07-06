@@ -1,0 +1,4 @@
+- include: roles/update/main.yml
+- include: roles/common/main.yml
+- include: roles/workstation/main.yml
+- include: roles/gnome/main.yml

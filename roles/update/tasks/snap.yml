@@ -1,0 +1,4 @@
+---
+- name: update snaps
+  become: true
+  ansible.builtin.command: snap refresh

@@ -1,0 +1,10 @@
+---
+- name: setup flathub repo
+  shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  become: yes
+
+- name: Install the calibre package from flathub for current user
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ flatpaks_install }}"

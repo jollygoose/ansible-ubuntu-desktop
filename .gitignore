@@ -1,0 +1,6 @@
+*.png
+*.jpg
+config.yml
+*.service
+systemd.yml
+inventory.ini
