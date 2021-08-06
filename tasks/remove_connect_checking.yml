@@ -1,0 +1,7 @@
+---
+# https://askubuntu.com/questions/1029108/how-do-i-programmatically-disable-connectivity-checking
+- name: remove connectivity checking
+  become: yes
+  shell: sed -i 's/true/false/g' /var/lib/NetworkManager/NetworkManager-intern.conf
+  args:
+    executable: /bin/bash

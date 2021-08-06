@@ -1,0 +1,6 @@
+---
+- name: install system theme packages from apt repo
+  become: yes
+  ansible.builtin.package:
+    name: "{{ item }}"
+  with_items: "{{ theme_apt_pkg }}"

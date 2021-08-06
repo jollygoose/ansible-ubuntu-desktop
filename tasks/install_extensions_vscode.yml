@@ -1,10 +1,10 @@
 ---
-- name: code-insiders extensions
+- name: vscode-insiders extensions
   shell: code-insiders --install-extension "{{ item }}"
   with_items: "{{ vs_code_extensions }}"
   when: code_insiders
 
-- name: code extensions
+- name: vscode extensions
   shell: code --install-extension "{{ item }}"
   with_items: "{{ vs_code_extensions }}"
   when: code_base

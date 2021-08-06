@@ -1,7 +1,0 @@
-# dot files
-use_dotfiles: true
-dotfile_url: ''
-clone_commands:
-  - git clone '{{ dotfile_url }}'
-
-set_fish: false

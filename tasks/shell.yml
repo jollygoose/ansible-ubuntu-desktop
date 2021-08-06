@@ -1,0 +1,9 @@
+---
+- name: set your shell 
+  become: yes
+  ansible.builtin.shell: chsh "{{ ansible_user_id }}" -s "{{ chosen_shell }}"
+
+- name: update shell config file
+  ansible.builtin.shell: "{{ update_config_command }}"
+  args:
+    executable: "{{ chosen_shell }}"

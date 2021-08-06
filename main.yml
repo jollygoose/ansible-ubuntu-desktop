@@ -1,4 +1,66 @@
-- include: roles/update/main.yml
-- include: roles/common/main.yml
-- include: roles/workstation/main.yml
-- include: roles/gnome/main.yml
+---
+- hosts: ubuntu_desktop
+
+  pre_tasks:
+    - name: load configuration
+      ansible.builtin.include_vars: config.yml
+
+  tasks:
+    # initial software setup
+    - name: update software
+      ansible.builtin.import_tasks: tasks/update.yml
+
+    # dotfiles
+    - name: download dotfiles
+      ansible.builtin.import_tasks: tasks/dotfiles.yml
+      when: use_dotfiles
+
+    - name: set default shell
+      ansible.builtin.import_tasks: tasks/shell.yml
+      when: set_shell
+
+    # install software
+    - name: install apt packages
+      ansible.builtin.import_tasks: tasks/install_packages_apt.yml
+      when: install_apt_packages
+    
+    - name: install flatpaks
+      ansible.builtin.import_tasks: tasks/install_packages_flatpak.yml
+      when: install_flatpaks
+    
+    - name: install snaps
+      ansible.builtin.import_tasks: tasks/install_packages_snap.yml
+      when: install_snaps
+    
+    - name: install gnome extensions
+      ansible.builtin.import_tasks: tasks/install_extensions_gnome.yml
+      when: install_gnome_extensions
+
+    - name: vscode extensions
+      ansible.builtin.import_tasks: tasks/install_extensions_vscode.yml
+      when: install_vscode_extensions
+
+    - name: install system theme components
+      ansible.builtin.import_tasks: tasks/install_theming.yml
+      when: install_theme_components
+
+    # gnome settings
+    - name: set profile pic
+      ansible.builtin.import_tasks: tasks/profile.yml
+      when: set_profile
+
+    - name: set wallpaper
+      ansible.builtin.import_tasks: tasks/wallpaper.yml
+      when: set_wallpaper
+
+    - name: remove connectivity checking
+      ansible.builtin.import_tasks: tasks/remove_connect_checking.yml
+      when: set_wallpaper
+
+    - name: configure keybindings
+      ansible.builtin.import_tasks: tasks/keybindings.yml
+      when: set_keybindings
+
+    - name: configure settings
+      ansible.builtin.import_tasks: tasks/setting_tweaks.yml
+      when: set_settings_tweaks

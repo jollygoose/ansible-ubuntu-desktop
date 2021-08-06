@@ -1,33 +1,30 @@
-Set up a system without the annoyance of manual configuration. Originally, I relied on scripts stored on a personal wiki ([gollum wiki](https://github.com/gollum/gollum)) for easy access. This project is an effort to move over tasks to Ansible, and marks the start of finding new uses for this handy and powerful tool. 
+Set up an Ubuntu desktop system without the annoyance of manual configuration. Originally, I relied on scripts stored on a personal wiki ([gollum wiki](https://github.com/gollum/gollum)) for easy access. This project is an effort to learn and move over tasks to Ansible. 
 
-## Inventory
-
-The tasks are spread across three host groups: ```gnome-desktop```, ```ubuntu```, and ```all```
-
-* gnome-desktop
-  * Systems running the gnome desktop
-* ubuntu
-  * Systems that use the ```apt``` package manager
-* all
-  * Can perform tasks don't require specific software or configurations
+This playbook is intended to be run against an Ubuntu desktop machine.
 
 ## Tasks
 
-The following tasks (with the exception of gnome & portions of desktop) are suitable for both desktop and server systems.
-
-* [update](roles/update/main.yml)
-  * update and install snap, flatpak and apt packages
-* [common](roles/common/main.yml)
-  * pull dotfiles
-  * set default shell
-* [desktop](roles/desktop/main.yml)
-  * Install apt, snap, and flatpaks applications
-  * Set apt cache server
-  * Install vscode extensions
-* [gnome](roles/gnome/main.yml)
-  * configure gnome keybindings
-  * set power, privacy settings, and workspace behavior
-  * set themes (includes wallpaper and profile image)
+* [dotfiles](tasks/update.yml)
+  * pull dotfiles from repo
+* [shell](tasks/shell.yml)
+  * set default shell and update its config file
+* [vscode extensions](tasks/install_extensions_vscode.yml)
+* [gnome extensions](tasks/install_extensions_gnome.yml)
+* install packages
+  * [apt](tasks/install_packages_apt.yml)
+  * [flatpak](tasks/install_packages_flatpak.yml)
+  * [snap](tasks/install_packages_snap.yml)
+* [themes](tasks/install_theming.yml)
+  * fonts
+  * icons
+  * gtk themes
+  * etc.
+* [set user profile image](tasks/profile.yml)
+* [remove connect checking](tasks/remove_connect_checking.yml)
+* [settings tweaks](tasks/setting_tweaks.yml)
+  * configure various gnome settings such as clock formating, workspace settings, etc. with the ansible dconf module
+* [update](tasks/update.yml)
+* [wallpaper](tasks/wallpaper.yml)
 
 ## Requirements
 
@@ -56,11 +53,9 @@ ansible-playbook -K main.yml
 
 ## @TODO
 
-- [ ] pip packages
-- [ ] dnf packages
-- [ ] docker
-- [ ] git repos
-- [ ] tars (e.g. grab JetBrains Mono Font)
+- [ ] pip packages & setup python enviroments
+- [ ] fonts/themes outside of the apt repos
+- [ ] gnome-extensions outside of the apt repos
  
 ## Resources
 

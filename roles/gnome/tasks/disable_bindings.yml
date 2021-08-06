@@ -1,4 +1,0 @@
----
-- name: disable dashtodock bindings
-  ansible.builtin.script: disable-dashtodock-keys.sh
-  

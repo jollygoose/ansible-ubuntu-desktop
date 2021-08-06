@@ -1,5 +1,5 @@
 ---
-- name: update all installed packages
+- name: update all installed apt packages
   become: true
   apt:
     name: '*'
@@ -12,3 +12,7 @@
   become: true
   apt:
     autoremove: yes
+
+- name: update snaps
+  become: true
+  ansible.builtin.command: snap refresh

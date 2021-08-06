@@ -1,8 +1,0 @@
----
-- name: update flatpaks
-  become: no
-  ansible.builtin.command: flatpak update --noninteractive
-
-- name: remove unused/unneeded flatpaks
-  become: no
-  ansible.builtin.command: flatpak uninstall --unused --noninteractive
