@@ -1,6 +1,6 @@
 ---
 - hosts: ubuntu_desktop
-  
+
   roles:
     - role: updates
     - role: core_software
