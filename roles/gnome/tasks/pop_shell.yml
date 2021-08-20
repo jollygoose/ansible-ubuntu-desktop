@@ -1,0 +1,32 @@
+---
+- name: check if pop shell is already installed
+  stat:
+    path: ~/.local/share/gnome-shell/extensions/pop-shell@system76.com
+  register: pop_exists
+
+- name: install dependencies
+  become: yes
+  ansible.builtin.package:
+    name:
+      - node-typescript
+      - make
+
+- name: download pop shell
+  ansible.builtin.git:
+    repo: https://github.com/pop-os/shell
+    dest: /tmp/pop-shell/
+    clone: yes
+    version: "{{ pop_shell_version }}"
+  when: not pop_exists.stat.exists
+
+- name: install pop shell
+  ansible.builtin.command: make local-install
+  args:
+    chdir: /tmp/pop-shell/
+  when: not pop_exists.stat.exists
+
+- name: cleanup
+  file:
+    state: absent
+    path: /tmp/pop-shell
+  when: not pop_exists.stat.exists

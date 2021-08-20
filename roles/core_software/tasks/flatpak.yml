@@ -1,0 +1,18 @@
+---
+- name: install flatpak
+  become: yes
+  ansible.builtin.package:
+    name: flatpak
+    state: present
+
+- name: setup flathub repo
+  ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  become: yes
+  changed_when: false
+
+- name: install the packages from flathub
+  community.general.flatpak:
+    name:
+      "{{ item }}"
+    state: present
+  with_items: "{{ flatpaks }}"

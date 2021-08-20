@@ -1,0 +1,8 @@
+[Unit]
+Description=swap fn keys on apple keyboard
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "echo 0 > /sys/module/hid_apple/parameters/fnmode"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+---
+- name: remove dashtodock bindings
+  ansible.builtin.script: "{{ disable_keys_script }}"
+  changed_when: false
+
+- name: set keybindings
+  ansible.builtin.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict:
+    "{{ keybinds }}"
+
+- name: create custom keybinds with script
+  ansible.builtin.script: "{{ custom_keys_script }}"
+  changed_when: false

@@ -1,0 +1,20 @@
+---
+- name: check if wallpaper exists
+  stat:
+    path: "{{ wallpaper_dest }}"
+  register: wallpaper_exists
+
+- name: copy wallpaper
+  ansible.builtin.copy:
+    src: "{{ wallpaper }}"
+    dest: "{{ wallpaper_dest }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0640'
+  when: not wallpaper_exists.stat.exists
+
+- name: wallpaper
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: '"{{ wallpaper_dest }}"'
+  when: not wallpaper_exists.stat.exists

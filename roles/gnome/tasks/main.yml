@@ -1,0 +1,11 @@
+---
+- include: apt_repo_extensions.yml
+- include: clock.yml
+- include: keybinds.yml
+- include: mutter.yml
+- include: pop_shell.yml
+- include: power.yml
+- include: privacy.yml
+- include: theme.yml
+- include: wallpaper.yml
+- include: workspaces.yml

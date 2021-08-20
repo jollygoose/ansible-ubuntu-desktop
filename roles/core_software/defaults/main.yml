@@ -1,0 +1,72 @@
+---
+core_packages:
+  - baobab
+  - clementine
+  - dconf-editor
+  - ffmpeg
+  - ffmpegthumbnailer
+  - git
+  - gtkhash
+  - htop
+  - jq
+  - keepassxc
+  - kitty
+  - neofetch
+  - net-tools
+  - openjdk-11-jdk
+  - openjdk-16-jdk
+  - pigz
+  - qt5ct
+  - ranger
+  - tilix
+  - timeshift
+  - tmux
+  - tmux-themepack-jimeh
+  - ufw
+  - unzip
+  - vagrant
+  - virtualbox
+  - zfsutils-linux
+
+remove_packages:
+  - orca
+  - whoopsie
+
+flatpaks:
+  - com.calibre_ebook.calibre
+  - org.gimp.GIMP
+  - org.gnome.Boxes
+  - org.gnome.Todo
+  - org.inkscape.Inkscape
+  - org.libreoffice.LibreOffice
+
+snaps_strict:
+  - chromium
+  - docker
+  - firefox
+  - joplin-desktop
+  - lxd
+  - review-tools
+  - rpi-imager
+  - vlc
+snaps_classic:
+  - snapcraft
+
+pip_pkgs:
+  - ansible
+  - ansible-lint
+  - yamllint
+
+vs_code_extensions:
+  - golang.go
+  - ms-vscode.hexeditor
+  - docsmsft.docs-markdown
+  - ms-azuretools.vscode-docker
+  - ms-mssql.mssql
+  - ms-python.python
+  - ms-python.vscode-pylance
+  - ms-toolsai.jupyter
+  - ms-vscode-remote.remote-containers
+  - ms-vscode-remote.remote-ssh
+  - ms-vscode-remote.remote-ssh-edit
+  - redhat.vscode-yaml

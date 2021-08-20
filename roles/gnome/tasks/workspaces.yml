@@ -1,0 +1,7 @@
+---
+- name: configure workspace settings
+  ansible.builtin.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict:
+    "{{ workspace_settings }}"

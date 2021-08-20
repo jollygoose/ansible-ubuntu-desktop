@@ -1,0 +1,16 @@
+---
+- name: configure privacy settings
+  ansible.builtin.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict:
+    "{{ privacy_settings }}"
+
+# https://askubuntu.com/questions/1029108/how-do-i-programmatically-disable-connectivity-checking
+- name: remove connectivity checking
+  become: yes
+  ansible.builtin.replace:
+    path: /var/lib/NetworkManager/NetworkManager-intern.conf
+    regexp: 'true'
+    replace: 'false'
+  changed_when: false

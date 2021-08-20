@@ -1,0 +1,23 @@
+---
+- name: install emacs
+  become: yes
+  ansible.builtin.package:
+    name: emacs-nox
+    state: present
+
+- name: install elpa/emacs extensions from the repo
+  become: yes
+  ansible.builtin.package:
+    name:
+      - elpa-auto-complete
+      - elpa-ess
+      - elpa-go-mode
+      - elpa-markdown-mode
+      - elpa-powerline
+      - elpa-system-packages
+      - elpa-systemd
+      - elpa-yaml-mode
+      - elpa-yasnippet-snippets
+      - elpa-yasnippet-snippets
+      - powerline
+    state: present

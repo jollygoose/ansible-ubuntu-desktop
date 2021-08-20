@@ -1,0 +1,11 @@
+---
+- include: core_packages.yml
+- include: emacs.yml
+- include: fish.yml
+- include: flatpak.yml
+- include: gedit.yml
+- include: pip.yml
+- include: python.yml
+- include: snapd.yml
+- include: texstudio.yml
+- include: vscode.yml

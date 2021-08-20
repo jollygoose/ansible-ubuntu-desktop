@@ -1,0 +1,9 @@
+---
+- name: check if dotfile repo has already been cloned
+  stat:
+    path: "{{ dotfile_path }}"
+  register: repo_exists
+
+- name: clone dotfiles
+  ansible.builtin.command: yadm clone "{{ repo }}"
+  when: not repo_exists.stat.exists

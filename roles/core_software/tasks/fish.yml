@@ -1,0 +1,15 @@
+---
+- name: install fish dependencies
+  become: yes
+  ansible.builtin.package:
+    name: fish
+    state: present
+
+- name: set your shell
+  become: yes
+  ansible.builtin.command: chsh "{{ ansible_user_id }}" -s /usr/bin/fish
+  changed_when: false
+
+- name: update shell config file
+  ansible.builtin.command: /usr/bin/fish -c "source ~/.config/fish/config.fish"
+  changed_when: false

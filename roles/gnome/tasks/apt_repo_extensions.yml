@@ -1,0 +1,6 @@
+---
+- name: install gnome extensions from the apt repo
+  become: yes
+  ansible.builtin.package:
+    name: "{{ item }}"
+  with_items: "{{ gnome_ext_apt }}"
