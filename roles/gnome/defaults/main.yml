@@ -64,8 +64,9 @@ workspace_settings:
   "/org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled": "true"
   "/org/gnome/desktop/interface/enable-hot-corners": "false"
 
-wallpaper: "80s_Disco_Dingo_Simulation_by_Abubakar_NK.jpg"
-wallpaper_dest: /home/{{ ansible_user_id }}/.wallpaper
+wallpaper_name: 80s_Disco_Dingo_Simulation_by_Abubakar_NK.jpg
+wallpaper_src: wallpaper/{{ wallpaper_name }}
+wallpaper_dest: /home/{{ ansible_user_id }}/.wallpaper/
 gtk_theme_name: "HighContrastInverse"
 cursor_theme_name: "oxy-hot_orange"
 icon_theme_name: "Flat-Remix-Orange-Dark"

@@ -5,6 +5,6 @@
     - role: updates
     - role: yadm
     - role: core_software
-    - role: gnome
     - role: flat_remix
+    - role: gnome
     - role: systemd
