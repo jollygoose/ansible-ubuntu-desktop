@@ -28,7 +28,7 @@
     dest: ~/.local/bin/
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
-    mode: '0640'
+    mode: '0740'
   when: not yadm_exists.stat.exists
 
 - name: cleanup

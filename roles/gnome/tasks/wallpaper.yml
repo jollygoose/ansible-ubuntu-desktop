@@ -1,7 +1,15 @@
 ---
+- name: create path wallpaper destination if it does not exist
+  file:
+    path: "{{ wallpaper_dest }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0640'
+
 - name: check if wallpaper exists
   stat:
-    path: "{{ wallpaper_dest }}"
+    path: "{{ wallpaper_dest }}/{{ wallpaper }}"
   register: wallpaper_exists
 
 - name: copy wallpaper
