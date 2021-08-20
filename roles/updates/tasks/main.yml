@@ -1,4 +1,6 @@
 ---
-- include: apt.yml
-- include: flatpak.yml
-- include: snapd.yml
+- name: update apt packages
+  become: yes
+  apt:
+    update_cache: yes
+    upgrade: 'yes'
