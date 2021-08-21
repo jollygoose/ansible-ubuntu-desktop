@@ -45,8 +45,10 @@ ansible-playbook -K main.yml
 
 ## @TODO
 
-- [ ] pip package updates
-- [ ] fonts/themes outside of the apt repos
+- pip package updates
+- fonts outside of the apt repos
+- enable extensions
+- dock
  
 ## Resources
 

@@ -17,8 +17,8 @@
 
 - name: sync updated flat remix icons
   ansible.posix.synchronize:
-    src: "/tmp/flat-remix-gtk/"
-    dest: ~/.local/share/themes/
+    src: "/tmp/flat-remix/"
+    dest: ~/.local/share/icons/
     rsync_opts:
       - "-u"
       - "-a"

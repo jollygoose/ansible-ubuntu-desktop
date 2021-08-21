@@ -1,5 +1,6 @@
 ---
 - name: install package dependencies
+  become: yes
   ansible.builtin.package:
     name:
       - oxygen-cursor-theme-extra
