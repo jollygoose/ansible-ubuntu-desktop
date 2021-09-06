@@ -31,7 +31,7 @@
     mode: '0740'
 
 - name: install yadm
-  ansible.builtin.command: cp /tmp/yadm/yadm /root/.local/bin/
+  ansible.builtin.command: cp /tmp/yadm/yadm "/home/{{ ansible_user_id }}"
   when: not yadm_exists.stat.exists
 
 - name: cleanup
