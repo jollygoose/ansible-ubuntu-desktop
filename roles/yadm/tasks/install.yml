@@ -24,7 +24,7 @@
 
 - name: create destination directory
   file:
-    path: /root/.local/bin/
+    path: "/home/{{ ansible_user_id }}/.local/bin/"
     state: directory
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
