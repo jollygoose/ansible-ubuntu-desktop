@@ -3,6 +3,8 @@ core_packages:
   - baobab
   - clementine
   - dconf-editor
+  - docker.io
+  - docker-compose
   - ffmpeg
   - ffmpegthumbnailer
   - git
@@ -42,7 +44,6 @@ flatpaks:
 
 snaps_strict:
   - chromium
-  - docker
   - firefox
   - joplin-desktop
   - lxd
