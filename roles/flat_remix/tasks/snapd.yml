@@ -1,8 +1,0 @@
----
-- name: install the flat remix snap packages
-  become: yes
-  community.general.snap:
-    name:
-      - flat-remix
-      - flat-remix-gtk
-  changed_when: false

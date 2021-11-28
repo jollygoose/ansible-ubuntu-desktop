@@ -2,9 +2,9 @@
 - hosts: ubuntu_desktop
 
   roles:
-    - role: updates
-    - role: yadm
-    - role: core_software
-    - role: flat_remix
-    - role: gnome
+    - role: apt
+    - role: flatpak
+    - role: snapd
+    - role: pip
+    - role: vscode
     - role: systemd

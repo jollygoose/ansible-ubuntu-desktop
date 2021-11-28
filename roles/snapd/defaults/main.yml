@@ -1,0 +1,11 @@
+---
+snaps_strict:
+  - firefox
+  - joplin-desktop
+  - lxd
+  - review-tools
+  - rpi-imager
+  - vlc
+snaps_classic:
+  - snapcraft
+  - code
