@@ -1,5 +1,0 @@
----
-pip_pkgs:
-  - ansible
-  - ansible-lint
-  - yamllint

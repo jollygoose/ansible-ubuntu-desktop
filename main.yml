@@ -2,9 +2,6 @@
 - hosts: ubuntu_desktop
 
   roles:
-    - role: apt
-    - role: flatpak
-    - role: snapd
-    - role: pip
+    - role: software
     - role: vscode
     - role: systemd

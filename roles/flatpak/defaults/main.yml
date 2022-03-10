@@ -1,8 +1,0 @@
----
-flatpaks:
-  - com.calibre_ebook.calibre
-  - org.gimp.GIMP
-  - org.gnome.Boxes
-  - org.gnome.Todo
-  - org.inkscape.Inkscape
-  - org.libreoffice.LibreOffice

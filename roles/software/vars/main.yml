@@ -1,10 +1,49 @@
 ---
+snaps_strict:
+  - firefox
+  - joplin-desktop
+  - lxd
+  - review-tools
+  - rpi-imager
+  - vlc
+  - bitwarden
+  - libreoffice
+  - flat-remix-gtk
+  - flat-remix
+  - chromium
+  - gnome-system-monitor
+  - hugo
+  - oxygen-cursors
+  - review-tools
+  - rpi-imager
+snaps_classic:
+  - snapcraft
+  - code
+  - gitkraken
+  - helm
+  - intellij-idea-community
+
+pip_pkgs:
+  - ansible
+  - ansible-lint
+  - yamllint
+
+flatpaks:
+  - com.calibre_ebook.calibre
+  - org.gimp.GIMP
+  - org.gnome.Boxes
+  - org.gnome.Todo
+  - org.inkscape.Inkscape
+  - md.obsidian.Obsidian
+  - org.musicbrainz.Picard
+
 core_pkgs:
   - baobab
   - clementine
   - dconf-editor
   - docker.io
   - docker-compose
+  - webp
   - ffmpeg
   - ffmpegthumbnailer
   - git
@@ -21,13 +60,10 @@ core_pkgs:
   - qt5ct
   - ranger
   - tilix
-  - timeshift
   - tmux
   - tmux-themepack-jimeh
   - ufw
   - unzip
-  - vagrant
-  - virtualbox
   - zfsutils-linux
 
 python_pkgs:
