@@ -1,0 +1,12 @@
+---
+- name: clone the repo RensAlthuis/vertical-overview
+  ansible.builtin.git:
+    repo: "https://github.com/RensAlthuis/vertical-overview.git"
+    dest: /tmp/vertical-overview
+
+- name: install vertical workspaces
+  ansible.builtin.shell: |
+    make && make install
+  args:
+    chdir: /tmp/vertical-overview
+  changed_when: false

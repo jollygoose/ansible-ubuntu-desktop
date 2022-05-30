@@ -1,0 +1,65 @@
+---
+- name: update current packages (apt)
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: "yes"
+  when: ansible_os_family == "Debian"
+
+- name: update current packages (dnf)
+  become: true
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+- name: purge uneeded
+  become: true
+  ansible.builtin.package:
+    name:
+      - orca
+      - whoopsie
+    state: absent
+    purge: yes
+  when: ansible_os_family == "Debian"
+
+- name: purge uneeded
+  become: true
+  ansible.builtin.package:
+    name:
+      - gnome-photos
+      - gnome-clocks
+      - totem
+      - rhythmbox
+    state: absent
+  when: ansible_os_family == "RedHat"
+
+- name: install core utilities
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ core_pkgs }}"
+
+- name: install python tools & libraries from the repo
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ python_pkgs }}"
+
+- name: install python tools & libraries from the repo
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ python_debian }}"
+  when: ansible_os_family == "Debian"
+
+- name: install python tools & libraries from the repo
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ python_redhat }}"
+  when: ansible_os_family == "RedHat"

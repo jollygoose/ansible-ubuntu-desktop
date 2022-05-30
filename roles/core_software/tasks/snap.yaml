@@ -1,19 +1,29 @@
 ---
 - name: install snapd
-  become: yes
+  become: true
   ansible.builtin.package:
     name: snapd
     state: present
 
+- name: enable classic snaps
+  become: true
+  ansible.builtin.command: ln -sf /var/lib/snapd/snap /snap
+  when: ansible_os_family == "RedHat"
+
+- name: Pause for 20s to allow snapd to seed
+  pause:
+    seconds: 20
+  when: ansible_os_family == "RedHat"
+
 - name: install strict snaps
-  become: yes
+  become: true
   community.general.snap:
     name: "{{ item }}"
   with_items: "{{ snaps_strict }}"
   changed_when: false
 
 - name: install classic snaps
-  become: yes
+  become: true
   community.general.snap:
     name: "{{ item }}"
     classic: yes

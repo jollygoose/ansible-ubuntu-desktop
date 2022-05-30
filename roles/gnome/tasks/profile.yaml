@@ -1,0 +1,26 @@
+---
+- name: copy profile pic
+  ansible.builtin.copy:
+    src: "{{ profile_img }}"
+    dest: "~/.face"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0640"
+
+- name: set profile picture for login screen
+  become: true
+  become_exe: sudo
+  ansible.builtin.copy:
+    src: "{{ profile_img }}"
+    dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}"
+    owner: root
+    group: root
+    mode: "0640"
+
+- name: set profile picture
+  become: true
+  become_exe: sudo
+  ansible.builtin.lineinfile:
+    path: "/var/lib/AccountsService/users/{{ ansible_user_id }}"
+    regexp: "^Icon="
+    line: "Icon=/var/lib/AccountsService/icons/{{ ansible_user_id }}"

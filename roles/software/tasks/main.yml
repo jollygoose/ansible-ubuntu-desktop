@@ -1,5 +1,0 @@
----
-- include: apt.yml
-- include: snap.yml
-- include: flatpak.yml
-- include: pip.yml

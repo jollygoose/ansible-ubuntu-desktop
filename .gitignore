@@ -5,7 +5,11 @@ todo/
 *.jpg
 *.code-workspace
 
+roles/directories/files/*
+
 secret
 vault.txt
 
 !80s_Disco_Dingo_Simulation_by_Abubakar_NK.jpg
+
+*.ini

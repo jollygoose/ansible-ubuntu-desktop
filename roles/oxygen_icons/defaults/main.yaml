@@ -1,0 +1,4 @@
+---
+enabled: true
+include_snap: true
+enable_snaps: "enable_snaps.sh"

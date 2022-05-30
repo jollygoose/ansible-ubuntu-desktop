@@ -1,0 +1,15 @@
+---
+- hosts: all
+
+  roles:
+    - role: core_software
+    - role: directories
+    - role: docker
+    - role: fonts
+    - role: oxygen_icons
+    - role: vscode
+    - role: systemd
+    - role: tlp
+    - role: flat_remix
+    - role: gnome
+    - role: extensions

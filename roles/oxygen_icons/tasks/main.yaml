@@ -1,0 +1,30 @@
+---
+- name: install oxygen cursors from the repo (ubuntu)
+  become: true
+  ansible.builtin.package:
+    name:
+      - oxygen-cursor-theme
+      - oxygen-cursor-theme-extra
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: install oxygen cursors from the repo (fedora)
+  become: true
+  ansible.builtin.package:
+    name:
+      - oxygen-icon-theme
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: install the oxygen cursors snap package
+  become: true
+  community.general.snap:
+    name:
+      - oxygen-cursors
+  changed_when: false
+  when: include_snap
+
+- name: apply the snap themes
+  ansible.builtin.script: "{{ enable_snaps }}"
+  changed_when: false
+  when: include_snap

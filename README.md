@@ -1,6 +1,6 @@
-Set up the software I use for an Ubuntu desktop system. Originally, I relied on scripts stored on a personal wiki ([gollum wiki](https://github.com/gollum/gollum)) for easy access. This project is an effort to learn, and move over tasks to Ansible. 
+Set up the software I use for a desktop system. Originally, I relied on scripts stored on a personal wiki ([gollum wiki](https://github.com/gollum/gollum)) for easy access. This project is an effort to learn, and move over tasks to Ansible. 
 
-*Tested with Ubuntu 21.10*
+*Tested with Ubuntu 22.04 and Fedora 36*
 
 ### Run
 
@@ -10,8 +10,8 @@ Set up the software I use for an Ubuntu desktop system. Originally, I relied on 
 cd /to/the/playbook/directory
 
 # local
-ansible-playbook -K main.yml --connection=local
+ansible-playbook -K main.yaml --connection=local
 
 # none local
-ansible-playbook -K main.yml
+ansible-playbook -K main.yaml
 ```

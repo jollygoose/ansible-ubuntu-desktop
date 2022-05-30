@@ -12,8 +12,8 @@ vs_code_extensions:
   - eamodio.gitlens
   - GitHub.github-vscode-theme
   - GitHub.remotehub
-  - gitkraken.gitkraken-authentication
   - hashicorp.terraform
+  - mechatroner.rainbow-csv
   - ms-azuretools.vscode-docker
   - ms-kubernetes-tools.vscode-kubernetes-tools
   - ms-python.python
@@ -24,5 +24,6 @@ vs_code_extensions:
   - ms-vscode-remote.remote-containers
   - ms-vscode-remote.remote-ssh
   - ms-vscode-remote.remote-ssh-edit
+  - oderwat.indent-rainbow
   - PKief.material-icon-theme
   - redhat.vscode-yaml

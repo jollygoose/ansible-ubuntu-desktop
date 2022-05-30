@@ -1,0 +1,5 @@
+---
+- name: install required python3-psutil for configuring gnome with ansible
+  become: true
+  ansible.builtin.package:
+    name: "python3-psutil"

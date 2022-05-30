@@ -1,0 +1,6 @@
+---
+flat_remix_icon_version: scripts/icon-version.sh
+flat_remix_gtk_version: scripts/gtk-version.sh
+flat_remix_gnome_version: scripts/gnome-version.sh
+include_snap: true
+enable_snaps: scripts/enable_snaps.sh

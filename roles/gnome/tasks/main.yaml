@@ -1,0 +1,11 @@
+---
+- include: requirements.yaml
+- include: clock.yaml
+- include: keybinds.yaml
+- include: mutter.yaml
+- include: power.yaml
+- include: privacy.yaml
+- include: theme.yaml
+- include: wallpaper.yaml
+- include: profile.yaml
+- include: workspaces.yaml

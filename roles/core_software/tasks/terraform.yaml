@@ -1,0 +1,36 @@
+---
+- name: install requirements
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+
+- name: download signing key
+  become: true
+  ansible.builtin.shell: |
+    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+  changed_when: false
+
+- name: add repo
+  become: true
+  ansible.builtin.package_repository:
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com impish main  # no jammy yet
+    state: present
+
+- name: update apt packages
+  become: true
+  ansible.builtin.package:
+    update_cache: yes
+    upgrade: "no"
+
+- name: install terraform
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - terraform

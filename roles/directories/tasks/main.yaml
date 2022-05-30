@@ -1,0 +1,32 @@
+---
+- name: remove default home directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+    mode: 0755
+  become: false
+  with_items:
+    - ~/Desktop
+    - ~/Documents
+    - ~/Downloads
+    - ~/Music
+    - ~/Pictures
+    - ~/Public
+    - ~/Templates
+    - ~/Videos
+
+- name: copy the 'hidden' file
+  ansible.builtin.copy:
+    src: "hidden"
+    dest: ~/.hidden
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0640"
+
+- name: copy the 'user-dirs.dirs' file
+  ansible.builtin.copy:
+    src: "user-dirs.dirs"
+    dest: ~/.config
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0640"

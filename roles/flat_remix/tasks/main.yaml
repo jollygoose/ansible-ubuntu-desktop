@@ -1,0 +1,5 @@
+---
+- include: gtk.yaml
+- include: icons.yaml
+- include: shell.yaml
+- include: snapd.yaml

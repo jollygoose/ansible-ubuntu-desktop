@@ -1,0 +1,5 @@
+---
+- name: apply the snap themes
+  become: true
+  ansible.builtin.script: "{{ enable_snaps }}"
+  changed_when: false

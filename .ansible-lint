@@ -1,3 +1,7 @@
 ---
 skip_list:
   - meta-no-info
+  - command-instead-of-module
+  - line-length
+  - git-latest
+  - risky-shell-pipe

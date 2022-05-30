@@ -1,0 +1,24 @@
+---
+# based on great answer from https://stackoverflow.com/a/66770158/17214978
+- name: get latest stable version tag
+  ansible.builtin.shell:
+    cmd: curl --silent 'https://api.github.com/repos/daniruiz/flat-remix-gnome/tags' | jq -r '.[0].name'
+  register: flat_remix_release
+  changed_when: false
+  args:
+    warn: false
+
+- name: clone flat remix shell
+  ansible.builtin.script: "{{ flat_remix_gnome_version }}"
+  changed_when: false
+
+- name: sync updated flat remix gnome elements
+  ansible.posix.synchronize:
+    src: "/tmp/flat-remix-gnome/themes/"
+    dest: ~/.local/share/themes/
+    rsync_opts:
+      - "-u"
+      - "-a"
+      - "--include=Flat-Remix-*"
+      - "--include=Flat-Remix-*/**"
+      - "--exclude=*"

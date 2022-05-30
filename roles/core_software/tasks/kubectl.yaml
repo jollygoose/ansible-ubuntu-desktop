@@ -1,0 +1,36 @@
+---
+- name: install requirements
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+
+- name: download signing key
+  become: true
+  ansible.builtin.shell: |
+    curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  changed_when: false
+
+- name: add repo
+  become: true
+  ansible.builtin.shell: |
+    echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
+  changed_when: false
+
+- name: update apt packages
+  become: true
+  ansible.builtin.package:
+    update_cache: yes
+    upgrade: 'no'
+
+- name: install kubectl
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - kubectl

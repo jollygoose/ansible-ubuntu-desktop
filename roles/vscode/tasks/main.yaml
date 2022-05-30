@@ -1,0 +1,12 @@
+---
+- name: ensure vscode is installed with snap
+  become: yes
+  community.general.snap:
+    name:
+      - code
+    classic: yes
+
+- name: install vscode extensions
+  ansible.builtin.command: code --install-extension "{{ item }}"
+  with_items: "{{ vs_code_extensions }}"
+  changed_when: false

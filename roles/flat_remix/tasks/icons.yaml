@@ -1,0 +1,20 @@
+---
+- name: check if flat remix icons is already installed
+  ansible.builtin.stat:
+    path: ~/.local/share/icons/Flat-Remix-Black-Dark
+
+- name: clone flat remix icons
+  ansible.builtin.script: "{{ flat_remix_icon_version }}"
+  changed_when: false
+
+- name: sync updated flat remix icons
+  ansible.posix.synchronize:
+    src: "/tmp/flat-remix/"
+    dest: ~/.local/share/icons/
+    rsync_opts:
+      - "-u"
+      - "-a"
+      - "--delete"
+      - "--include=Flat-Remix-*"
+      - "--include=Flat-Remix-*/**"
+      - "--exclude=*"

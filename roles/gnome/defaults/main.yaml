@@ -1,0 +1,79 @@
+---
+gnome_ext_ubuntu:
+  - gnome-shell-extension-gsconnect
+  - gnome-shell-extensions
+  - gnome-tweaks
+  - gnome-shell-extensions-gpaste
+
+clock_settings:
+  "/org/gnome/desktop/datetime/automatic-timezone": "true"
+  "/org/gnome/desktop/interface/clock-show-date": "true"
+  "/org/gnome/desktop/interface/clock-format": "'12h'"
+  "/org/gnome/desktop/interface/clock-show-seconds": "true"
+
+custom_keys_script: scripts/custom_keys_script.py
+disable_keys_script: scripts/disable_dashtodock_keys.sh
+keybinds:
+  "/org/gnome/settings-daemon/plugins/media-keys/www": "['<Super>e']"
+  "/org/gnome/settings-daemon/plugins/media-keys/home": "['<Super>bracketright']"
+  "/org/gnome/desktop/wm/keybindings/close": "['<Super>q']"
+  "/org/gnome/desktop/wm/keybindings/toggle-maximized": "['<Super>f']"
+  "/org/gnome/desktop/wm/keybindings/toggle-fullscreen": "['<Super>F11']"
+  "/org/gnome/shell/keybindings/toggle-overview": "['']"
+  # "/org/gnome/desktop/wm/keybindings/move-to-workspace-left": "['<Super><Shift>a']"
+  # "/org/gnome/desktop/wm/keybindings/move-to-workspace-right": "['<Shift><Super>d']"
+  "/org/gnome/desktop/wm/keybindings/move-to-workspace-up": "['<Super><Shift>w']"
+  "/org/gnome/desktop/wm/keybindings/move-to-workspace-down": "['<Shift><Super>s']"
+  "/org/gnome/desktop/wm/keybindings/move-to-monitor-left": "['<Shift><Super>a']"
+  "/org/gnome/desktop/wm/keybindings/move-to-monitor-right": "['<Shift><Super>d']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-left": "['<Super>a']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-right": "['<Super>d']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-up": "['<Super>w']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-down": "['<Super>s']"
+  "/org/gnome/desktop/wm/keybindings/toggle-tiled-right": "['<Alt>a']"
+  "/org/gnome/desktop/wm/keybindings/toggle-tiled-left": "['<Alt>d']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-1": "['<Super>1']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-2": "['<Super>2']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-3": "['<Super>3']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-4": "['<Super>4']"
+  "/org/gnome/desktop/wm/keybindings/switch-to-workspace-5": "['<Super>5']"
+  "/org/gnome/settings-daemon/plugins/media-keys/terminal": "['<Super>t']"
+
+mutter_settings:
+  "/org/gnome/mutter/experimental-features": "['rt-scheduler','scale-monitor-framebuffer']"
+  "/org/gnome/settings-daemon/plugins/xsettings/antialiasing": "'rgba'"
+  "/org/gnome/mutter/center-new-windows": "true"
+
+power_config:
+  "/org/gnome/desktop/session/idle-delay": "uint32 0"
+  "/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type": "'nothing'"
+  "/org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-type": "'nothing'"
+  "/org/gnome/desktop/interface/show-battery-percentage": "true"
+
+privacy_settings:
+  "/org/gnome/desktop/privacy/disable-microphone": "true"
+  "/org/gnome/desktop/privacy/disable-camera": "true"
+  "/org/gnome/desktop/privacy/report-technical-problems": "false"
+  "/org/gnome/desktop/screensaver/lock-enabled": "false"
+
+theme_settings:
+  "/org/gnome/desktop/interface/cursor-theme": '"{{ cursor_theme_name }}"'
+  "/org/gnome/desktop/interface/icon-theme": '"{{ icon_theme_name }}"'
+  "/org/gnome/desktop/interface/gtk-theme": '"{{ gtk_theme_name }}"'
+  "/org/gnome/shell/extensions/user-theme/name": '"{{ gnome_shell_name }}"'
+
+workspace_settings:
+  "/org/gnome/mutter/workspaces-only-on-primary": "true"
+  "/org/gnome/shell/app-switcher/current-workspace-only": "false"
+  "/org/gnome/shell/overrides/attach-modal-dialogs": "false"
+  "/org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled": "true"
+  "/org/gnome/desktop/interface/enable-hot-corners": "false"
+
+wallpaper_ubuntu: 80s_Disco_Dingo_Simulation_by_Abubakar_NK.png
+wallpaper_redhat: wallpaper.png
+wallpaper_dest: /home/{{ ansible_user_id }}/.wallpaper/
+gtk_theme_name: "Flat-Remix-GTK-Violet-Dark-Solid"
+gnome_shell_name: "Flat-Remix-White-Dark-fullPanel"
+cursor_theme_name: "oxy-yellow"
+icon_theme_name: "Flat-Remix-Violet-Dark"
+profile_img: "goose.png"

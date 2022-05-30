@@ -1,0 +1,5 @@
+---
+- include: repo.yaml
+- include: snap.yaml
+- include: flatpak.yaml
+- include: pip.yaml

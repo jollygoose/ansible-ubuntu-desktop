@@ -1,0 +1,51 @@
+---
+- name: create path wallpaper destination if it does not exist
+  ansible.builtin.file:
+    path: "{{ wallpaper_dest }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0770"
+
+- name: copy wallpaper (debian)
+  ansible.builtin.copy:
+    src: "wallpaper/{{ wallpaper_ubuntu }}"
+    dest: "{{ wallpaper_dest }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0770"
+  when: ansible_os_family == "Debian"
+
+- name: copy wallpaper (redhat)
+  ansible.builtin.copy:
+    src: "wallpaper/{{ wallpaper_redhat }}"
+    dest: "{{ wallpaper_dest }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0770"
+  when: ansible_os_family == "RedHat"
+
+# gnome 42
+- name: wallpaper dark theme
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/background/picture-uri-dark"
+    value: '"{{ wallpaper_dest }}{{ wallpaper_ubuntu }}"'
+  when: ansible_os_family == "Debian"
+
+- name: wallpaper dark theme
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/background/picture-uri-dark"
+    value: '"{{ wallpaper_dest }}{{ wallpaper_redhat }}"'
+  when: ansible_os_family == "RedHat"
+
+- name: set wallpaper to 'spanned'
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/background/picture-options"
+    value: "'spanned'"
+  when: ansible_os_family == "Debian"
+
+- name: set wallpaper to 'zoomed'
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/background/picture-options"
+    value: "'scaled'"
+  when: ansible_os_family == "RedHat"

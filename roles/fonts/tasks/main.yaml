@@ -1,0 +1,26 @@
+---
+- name: download JetBrains Mono
+  ansible.builtin.script: download_font.sh
+  changed_when: false
+
+- name: create JetBrainsMono folder
+  ansible.builtin.file:
+    path: ~/.local/share/fonts/JetBrainsMono
+    state: directory
+    mode: 0755
+  become: false
+
+- name: extract JetBrains Mono
+  ansible.builtin.unarchive:
+    src: ~/.local/share/fonts/JetBrainsMono.zip
+    dest: ~/.local/share/fonts/JetBrainsMono
+
+- name: install the fonts
+  ansible.builtin.command: fc-cache -f -v
+  changed_when: false
+
+- name: remove zip
+  ansible.builtin.file:
+    path: ~/.local/share/fonts/JetBrainsMono.zip
+    state: absent
+  changed_when: false

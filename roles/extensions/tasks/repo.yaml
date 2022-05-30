@@ -1,0 +1,7 @@
+---
+- name: install gnome extensions from ubuntu repo
+  become: yes
+  ansible.builtin.package:
+    name: "{{ item }}"
+  with_items: "{{ gnome_ext_ubuntu }}"
+  when: ansible_facts.os_family == "Debian"

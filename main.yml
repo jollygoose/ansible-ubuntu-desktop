@@ -1,7 +1,0 @@
----
-- hosts: ubuntu_desktop
-
-  roles:
-    - role: software
-    - role: vscode
-    - role: systemd

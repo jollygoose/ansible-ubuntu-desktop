@@ -1,0 +1,15 @@
+---
+- name: remove mounts from ubuntu dashboard
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/datetime/show-mounts"
+    value: "false"
+
+- name: use multi-monitor in ubuntu dashboard
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/datetime/multi-monitor"
+    value: "true"
+
+- name: set icon size in ubuntu dashboard
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/datetime/dash-max-icon-size"
+    value: "30"

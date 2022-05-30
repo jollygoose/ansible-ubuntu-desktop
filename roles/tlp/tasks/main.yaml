@@ -1,0 +1,25 @@
+---
+- name: install core utilities
+  become: true
+  ansible.builtin.package:
+    name:
+      - "tlp"
+      - "tlp-rdw"
+      - "acpi-call-dkms"
+    state: present
+  tags: 'laptop'
+
+- name: set charge threshhold
+  become: true
+  ansible.builtin.shell: |
+    sed -i 's/\#START_CHARGE_THRESH_BAT0=75/START_CHARGE_THRESH_BAT0=75/g' /etc/tlp.conf &&
+    sed -i 's/\#STOP_CHARGE_THRESH_BAT0=80/STOP_CHARGE_THRESH_BAT0=80/g' /etc/tlp.conf
+  changed_when: false
+  tags: 'laptop'
+
+- name: enable thresholds without rebooting
+  become: true
+  ansible.builtin.shell: |
+    sudo tlp setcharge
+  changed_when: false
+  tags: 'laptop'
