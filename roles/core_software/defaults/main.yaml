@@ -5,6 +5,8 @@ snaps_strict:
   - bitwarden
   - gnome-system-monitor
   - review-tools
+  - flat-remix-gtk
+  - flat-remix
 snaps_classic:
   - snapcraft
   - gitkraken

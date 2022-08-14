@@ -5,17 +5,19 @@
     dest: "~/.face"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    mode: "0640"
+    mode: "0644"
 
+# updated for gnome 42
 - name: set profile picture for login screen
   become: true
   become_exe: sudo
   ansible.builtin.copy:
     src: "{{ profile_img }}"
-    dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}"
+    # dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}"
+    dest: /usr/share/pixmaps/faces/
     owner: root
     group: root
-    mode: "0640"
+    mode: "0644"
 
 - name: set profile picture
   become: true
@@ -23,4 +25,4 @@
   ansible.builtin.lineinfile:
     path: "/var/lib/AccountsService/users/{{ ansible_user_id }}"
     regexp: "^Icon="
-    line: "Icon=/var/lib/AccountsService/icons/{{ ansible_user_id }}"
+    line: "Icon=/usr/share/pixmaps/faces/{{ profile_img }}"

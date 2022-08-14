@@ -18,7 +18,7 @@ keybinds:
   "/org/gnome/desktop/wm/keybindings/close": "['<Super>q']"
   "/org/gnome/desktop/wm/keybindings/toggle-maximized": "['<Super>f']"
   "/org/gnome/desktop/wm/keybindings/toggle-fullscreen": "['<Super>F11']"
-  "/org/gnome/shell/keybindings/toggle-overview": "['']"
+  "/org/gnome/shell/keybindings/toggle-overview": "['LaunchA','F3']"
   # "/org/gnome/desktop/wm/keybindings/move-to-workspace-left": "['<Super><Shift>a']"
   # "/org/gnome/desktop/wm/keybindings/move-to-workspace-right": "['<Shift><Super>d']"
   "/org/gnome/desktop/wm/keybindings/move-to-workspace-up": "['<Super><Shift>w']"
@@ -64,9 +64,9 @@ theme_settings:
 workspace_settings:
   "/org/gnome/mutter/workspaces-only-on-primary": "true"
   # "/org/gnome/shell/app-switcher/current-workspace-only": "false"
-  # "/org/gnome/shell/overrides/attach-modal-dialogs": "false"
-  # "/org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled": "true"
-  # "/org/gnome/desktop/interface/enable-hot-corners": "false"
+  "/org/gnome/shell/overrides/attach-modal-dialogs": "false"
+  "/org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled": "true"
+  "/org/gnome/desktop/interface/enable-hot-corners": "false"
 
 configure_wallpaper: false
 wallpaper_ubuntu: 80s_Disco_Dingo_Simulation_by_Abubakar_NK.png
@@ -75,5 +75,5 @@ wallpaper_dest: /home/{{ ansible_user_id }}/.wallpaper/
 gtk_theme_name: "Flat-Remix-GTK-Violet-Dark-Solid"
 gnome_shell_name: "Flat-Remix-White-Dark-fullPanel"
 cursor_theme_name: "oxy-yellow"
-# icon_theme_name: "Flat-Remix-Violet-Dark"
+icon_theme_name: "Flat-Remix-Violet-Dark"
 profile_img: "goose.png"

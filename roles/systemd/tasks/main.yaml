@@ -16,5 +16,6 @@
     name: "{{ item }}"
     enabled: yes
     masked: no
+    state: started
   with_items: "{{ systemd_enable }}"
   changed_when: false
