@@ -1,4 +1,5 @@
 ---
 - include: ubuntu_dash.yaml
-  when: ansible_os_family == "Debian"
+  when: ubuntu_dash
 - include: vertical_workspaces.yaml
+  when: install_vertical

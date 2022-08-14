@@ -7,5 +7,6 @@
 - include: privacy.yaml
 - include: theme.yaml
 - include: wallpaper.yaml
+  when: configure_wallpaper
 - include: profile.yaml
 - include: workspaces.yaml

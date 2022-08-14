@@ -1,4 +1,6 @@
 ---
+snap_install: false
+
 # https://stackoverflow.com/a/49398449/17214978
 # code --list-extensions | xargs -L 1 echo code --install-extension | awk '{ print "  - " $3 }'
 vs_code_extensions:
@@ -6,8 +8,10 @@ vs_code_extensions:
   - bierner.markdown-checkbox
   - bierner.markdown-emoji
   - bierner.markdown-footnotes
+  - bierner.markdown-mermaid
   - bierner.markdown-preview-github-styles
   - bierner.markdown-yaml-preamble
+  - bmalehorn.vscode-fish
   - dracula-theme.theme-dracula
   - eamodio.gitlens
   - GitHub.github-vscode-theme
@@ -24,6 +28,7 @@ vs_code_extensions:
   - ms-vscode-remote.remote-containers
   - ms-vscode-remote.remote-ssh
   - ms-vscode-remote.remote-ssh-edit
+  - ms-vscode.remote-repositories
   - oderwat.indent-rainbow
   - PKief.material-icon-theme
   - redhat.vscode-yaml

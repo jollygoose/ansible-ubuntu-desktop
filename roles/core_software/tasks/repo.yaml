@@ -17,7 +17,6 @@
   become: true
   ansible.builtin.package:
     name:
-      - orca
       - whoopsie
     state: absent
     purge: yes

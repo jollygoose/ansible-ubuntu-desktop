@@ -1,6 +1,5 @@
 ---
 gnome_ext_ubuntu:
-  - gnome-shell-extension-gsconnect
   - gnome-shell-extensions
   - gnome-tweaks
   - gnome-shell-extensions-gpaste
@@ -40,14 +39,14 @@ keybinds:
   "/org/gnome/settings-daemon/plugins/media-keys/terminal": "['<Super>t']"
 
 mutter_settings:
-  "/org/gnome/mutter/experimental-features": "['rt-scheduler','scale-monitor-framebuffer']"
-  "/org/gnome/settings-daemon/plugins/xsettings/antialiasing": "'rgba'"
+  # "/org/gnome/mutter/experimental-features": "['rt-scheduler','scale-monitor-framebuffer']"
+  # "/org/gnome/settings-daemon/plugins/xsettings/antialiasing": "'rgba'"
   "/org/gnome/mutter/center-new-windows": "true"
 
 power_config:
-  "/org/gnome/desktop/session/idle-delay": "uint32 0"
-  "/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type": "'nothing'"
-  "/org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-type": "'nothing'"
+  # "/org/gnome/desktop/session/idle-delay": "uint32 0"
+  # "/org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type": "'nothing'"
+  # "/org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-type": "'nothing'"
   "/org/gnome/desktop/interface/show-battery-percentage": "true"
 
 privacy_settings:
@@ -58,22 +57,23 @@ privacy_settings:
 
 theme_settings:
   "/org/gnome/desktop/interface/cursor-theme": '"{{ cursor_theme_name }}"'
-  "/org/gnome/desktop/interface/icon-theme": '"{{ icon_theme_name }}"'
-  "/org/gnome/desktop/interface/gtk-theme": '"{{ gtk_theme_name }}"'
-  "/org/gnome/shell/extensions/user-theme/name": '"{{ gnome_shell_name }}"'
+  # "/org/gnome/desktop/interface/icon-theme": '"{{ icon_theme_name }}"'
+  # "/org/gnome/desktop/interface/gtk-theme": '"{{ gtk_theme_name }}"'
+  # "/org/gnome/shell/extensions/user-theme/name": '"{{ gnome_shell_name }}"'
 
 workspace_settings:
   "/org/gnome/mutter/workspaces-only-on-primary": "true"
-  "/org/gnome/shell/app-switcher/current-workspace-only": "false"
-  "/org/gnome/shell/overrides/attach-modal-dialogs": "false"
-  "/org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled": "true"
-  "/org/gnome/desktop/interface/enable-hot-corners": "false"
+  # "/org/gnome/shell/app-switcher/current-workspace-only": "false"
+  # "/org/gnome/shell/overrides/attach-modal-dialogs": "false"
+  # "/org/gnome/desktop/peripherals/touchpad/two-finger-scrolling-enabled": "true"
+  # "/org/gnome/desktop/interface/enable-hot-corners": "false"
 
+configure_wallpaper: false
 wallpaper_ubuntu: 80s_Disco_Dingo_Simulation_by_Abubakar_NK.png
 wallpaper_redhat: wallpaper.png
 wallpaper_dest: /home/{{ ansible_user_id }}/.wallpaper/
 gtk_theme_name: "Flat-Remix-GTK-Violet-Dark-Solid"
 gnome_shell_name: "Flat-Remix-White-Dark-fullPanel"
 cursor_theme_name: "oxy-yellow"
-icon_theme_name: "Flat-Remix-Violet-Dark"
+# icon_theme_name: "Flat-Remix-Violet-Dark"
 profile_img: "goose.png"

@@ -1,6 +1,8 @@
 ---
 - hosts: all
-
+  # https://stackoverflow.com/questions/21870083/specify-sudo-password-for-ansible
+  vars_files:
+    - secret
   roles:
     - role: core_software
     - role: directories

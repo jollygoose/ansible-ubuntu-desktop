@@ -1,25 +1,12 @@
 ---
 snaps_strict:
-  # - docker
-  - firefox
-  - joplin-desktop
-  - lxd
   - review-tools
   - rpi-imager
-  - vlc
   - bitwarden
-  - libreoffice
-  - flat-remix-gtk
-  - flat-remix
-  - chromium
   - gnome-system-monitor
-  - hugo
-  - oxygen-cursors
   - review-tools
-  - rpi-imager
 snaps_classic:
   - snapcraft
-  - code
   - gitkraken
   - helm
   - intellij-idea-community
@@ -34,13 +21,9 @@ pip_pkgs:
 flatpaks:
   - com.calibre_ebook.calibre
   - org.gimp.GIMP
-  - org.gnome.Boxes
-  - org.gnome.Todo
-  - org.inkscape.Inkscape
   - md.obsidian.Obsidian
   - org.musicbrainz.Picard
   - org.clementine_player.Clementine
-  - org.gnome.Extensions
 
 core_pkgs:
   - baobab
@@ -61,6 +44,9 @@ core_pkgs:
   - unzip
   - pandoc
   - texlive-xetex
+  - fzf
+  - ffmpeg
+  - ffmpegthumbnailer
   - texstudio
 core_pkg_redhat:
   - gnome-shell-extension-user-theme

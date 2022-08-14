@@ -7,7 +7,6 @@
 
 - name: setup flathub repo
   ansible.builtin.command: flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  # become: true
   changed_when: false
 
 - name: install the packages from flathub
